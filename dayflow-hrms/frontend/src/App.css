@@ -1,0 +1,241 @@
+/* Sidebar Styles */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--slate-900);
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--slate-800);
+  transition: transform 0.25s ease;
+}
+
+.sidebar-brand {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--slate-800);
+}
+
+.brand-icon {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-700));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  background: linear-gradient(to right, #ffffff, var(--primary-200));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-nav {
+  padding: 1.25rem 0.75rem;
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.nav-section-header {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--slate-400);
+  padding: 0.75rem 0.75rem 0.25rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
+  border-radius: var(--radius-md);
+  color: var(--slate-300);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  background-color: var(--slate-800);
+  color: white;
+}
+
+.nav-link.active {
+  background-color: var(--primary-600);
+  color: white;
+}
+
+.sidebar-footer {
+  padding: 1rem 1.25rem;
+  border-top: 1px solid var(--slate-800);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Top Navbar Styles */
+.top-navbar {
+  height: var(--topbar-height);
+  background-color: white;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-100);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--slate-900);
+}
+
+.user-role {
+  font-size: 0.75rem;
+  color: var(--slate-500);
+}
+
+/* Calendar Grid */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.calendar-day-header {
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: var(--slate-500);
+  padding: 0.5rem;
+  text-transform: uppercase;
+}
+
+.calendar-day-cell {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  min-height: 90px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition);
+}
+
+.calendar-day-cell:hover {
+  border-color: var(--primary-400);
+}
+
+.calendar-day-number {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--slate-700);
+}
+
+/* Printable Payslip Styling */
+@media print {
+  .sidebar, .top-navbar, .no-print, .btn {
+    display: none !important;
+  }
+  .main-content-wrapper {
+    margin-left: 0 !important;
+  }
+  .page-container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  .payslip-container {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
+
+.payslip-container {
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-md);
+}
+
+.payslip-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--slate-900);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.payslip-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.payslip-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.payslip-table th {
+  background: var(--slate-100);
+  padding: 0.625rem;
+  text-align: left;
+  font-size: 0.8125rem;
+  border: 1px solid var(--border-color);
+}
+
+.payslip-table td {
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--border-color);
+}
+
+.payslip-total {
+  font-weight: 800;
+  background: var(--slate-50);
+}
